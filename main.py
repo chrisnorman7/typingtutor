@@ -146,7 +146,9 @@ class MainFrame(wx.Frame):
     if not self.tutorIndex:
      self.entry.SetValue('')
     self.tutorIndex += 1
-   speech.speech.get_first_available_output().silence()
+   s = speech.speech.get_first_available_output()
+   if hasattr(s, 'silence'):
+    s.silence()
    speech.speech.output(self.getCurrentLetter())
  def toggleVerbosity(self):
   self.setVerbose(not self.getVerbose())
