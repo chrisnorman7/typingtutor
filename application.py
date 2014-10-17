@@ -5,7 +5,7 @@ a = wx.App(False)
 commandKey = wx.MOD_CMD if sys.platform == 'darwin' else wx.MOD_CONTROL
 
 appName = 'Typing Tutor'
-appVersion = '0.1'
+appVersion = '1.0'
 
 if sys.platform == 'darwin':
  from AppKit import NSSearchPathForDirectoriesInDomains

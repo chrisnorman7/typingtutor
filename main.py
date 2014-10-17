@@ -189,6 +189,9 @@ class MainFrame(wx.Frame):
    f.Close(True)
   def quit(event):
    f.Close(True)
+  def userGuide(event):
+   webbrowser.open('readme.html')
+   f.Close(True)
   f = wx.Frame(None, title = 'About')
   p = wx.Panel(f)
   s = wx.BoxSizer(wx.VERTICAL)
@@ -200,12 +203,15 @@ class MainFrame(wx.Frame):
   ok = wx.Button(p, label = 'OK')
   s2.Add(ok, 0, wx.GROW)
   f.Bind(wx.EVT_BUTTON, quit, ok)
+  help = wx.Button(p, label = 'User Guide')
+  s2.Add(help, 0, wx.GROW)
+  f.Bind(wx.EVT_BUTTON, userGuide, help)
   s.Add(s2, 0, wx.GROW)
   f.SetSizerAndFit(s)
   f.Maximize(True)
   f.Show(True)
 
 if __name__ == '__main__':
- a = wx.App(False)
+ a = wx.App(True, filename = '%s.log' % application.appName)
  m = MainFrame()
  a.MainLoop()
